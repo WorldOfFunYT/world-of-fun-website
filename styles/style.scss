@@ -1,0 +1,141 @@
+@font-face {
+    font-family: "Michroma";
+    src: url("../assets/fonts/Michroma-Regular.ttf");
+}
+@font-face {
+    font-family: "Wild World";
+    src: url("../assets/fonts/WILD\ WORLD.otf");
+}
+
+:root {
+    --font: "Michroma";
+    --bg-clr: #00000000;
+    --text-clr: #000000;
+
+    // Colours =====================================================================================
+
+    --yellow: #FFD35B;
+    --pink: #E73B83;
+    --orange: #FF8A5B;
+
+}
+
+*, *::before, *::after {
+    font-family: var(--font);
+    background-color: var(--bg-clr);
+    color: var(--text-clr);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+// =================================================================================================
+// Custom properties
+// =================================================================================================
+
+// Fonts ===========================================================================================
+
+.text-font-title {
+    --font: "Wild World";
+}
+.text-font-default {
+    --font: "Michroma";
+}
+
+.text-clr-white {
+    --text-clr: #fff;
+}
+
+.text-size-5 {
+    font-size: 5em;
+}
+.text-size-4 {
+    font-size: 4em;
+}
+.text-size-3 {
+    font-size: 3em;
+}
+.text-size-2 {
+    font-size: 2em;
+}
+.text-size-1-5 {
+    font-size: 1.5em;
+}
+.text-size-1 {
+    font-size: 1em;
+}
+
+// Background colours ==============================================================================
+
+.bg-clr-yellow {
+    --bg-clr: var(--yellow);
+    --text-clr: #000;
+}
+
+// Wrapper Alignment ===============================================================================
+
+.content-wrapper-right {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    float: right;
+}
+
+// =================================================================================================
+// Buttons
+// =================================================================================================
+
+.button {
+    padding: 1.5em;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+// =================================================================================================
+// Everything else
+// =================================================================================================
+
+body.index {
+    background-image: url("../assets/images/backgrounds/gradient-bg-2k.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100vh;
+    .content-wrapper {
+        padding-right: 9em;
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+        height: 100%;
+        max-width: 1200px;
+        gap: 2em;
+    }
+}
+
+.navbar {
+    width:100vw;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5em;
+    .left, .right * {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        text-decoration: none;
+    }
+    .right * {
+        gap: 2em;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    *, *::before, *::after {font-size: 10px;}
+}
