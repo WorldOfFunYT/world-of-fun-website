@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +8,33 @@
     <link rel="stylesheet" href="styles/style.css">
     <title>Home</title>
 </head>
+
 <body class="index">
     <div class="navbar">
         <a href="#" class="left">
-            <img src="assets/images/logos/logo.svg" alt="My Logo" width="55px">
-            <p class="text-font-title text-size-1-5 text-clr-white">WORLD OF FUN</p>
+            <img src="assets/images/logos/logo.svg" alt="My Logo" class="logo">
+            <p class="navbar-title">WORLD OF FUN</p>
         </a>
         <div class="right">
-            <ul>
-                <li><a href="#" class="text-clr-white text-size-2">about</a></li>
-                <li><a href="#" class="text-clr-white text-size-2">music</a></li>
-            </ul>
+            <div class="menu-toggle" data-menu-button>
+                <i class="menu-icon"></i>
+            </div>
         </div>
     </div>
-    <div class="content-wrapper content-wrapper-right">
-        <h1 class="text-font-title text-size-5 text-clr-white">welcome to the<br>WORLD OF FUN</h1>
-        <p class="text-size-3 text-clr-white">I don’t know what to put here
-            but it should be something music
-            or coding related</p>
-        <a href="#" class="button bg-clr-yellow text-font-title text-size-1-5">LISTEN NOW</a>
+    <div class="menu closed" data-menu>
+        <div class="menu-items">
+            <a href="#" class="menu-item" data-menu-item>about</a>
+            <a href="#" class="menu-item" data-menu-item>music</a>
+        </div>
+        <div class="menu-bg-pattern"></div>
     </div>
+    <div class="content-wrapper">
+        <h1 class="big-title">welcome to the<br>WORLD OF FUN</h1>
+        <p class="big-paragraph">I don’t know what to put here but it should be something music or coding related</p>
+        <a href="#" class="big-button">LISTEN NOW</a>
+    </div>
+    <script src="scripts/menu.js"></script>
+    <script src="scripts/menu-button.js"></script>
 </body>
+
 </html>

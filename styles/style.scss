@@ -2,6 +2,7 @@
     font-family: "Michroma";
     src: url("../assets/fonts/Michroma-Regular.ttf");
 }
+
 @font-face {
     font-family: "Wild World";
     src: url("../assets/fonts/WILD\ WORLD.otf");
@@ -9,96 +10,58 @@
 
 :root {
     --font: "Michroma";
-    --bg-clr: #00000000;
-    --text-clr: #000000;
-
     // Colours =====================================================================================
-
     --yellow: #FFD35B;
     --pink: #E73B83;
     --orange: #FF8A5B;
-
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     font-family: var(--font);
-    background-color: var(--bg-clr);
-    color: var(--text-clr);
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-size: 16px;
+    // font-size: 16px;
 }
 
-// =================================================================================================
-// Custom properties
-// =================================================================================================
-
-// Fonts ===========================================================================================
-
-.text-font-title {
+.navbar-title {
     --font: "Wild World";
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    color: white
 }
-.text-font-default {
+
+.big-title {
+    --font: "Wild World";
+    color: white;
+    font-size: clamp(2rem, 8vw, 5rem)
+}
+
+.big-paragraph {
     --font: "Michroma";
+    color: white;
+    font-size: clamp(1.13rem, 5vw, 3rem);
 }
 
-.text-clr-white {
-    --text-clr: #fff;
-}
-
-.text-size-5 {
-    font-size: 5em;
-}
-.text-size-4 {
-    font-size: 4em;
-}
-.text-size-3 {
-    font-size: 3em;
-}
-.text-size-2 {
-    font-size: 2em;
-}
-.text-size-1-5 {
-    font-size: 1.5em;
-}
-.text-size-1 {
-    font-size: 1em;
-}
-
-// Background colours ==============================================================================
-
-.bg-clr-yellow {
-    --bg-clr: var(--yellow);
-    --text-clr: #000;
-}
-
-// Wrapper Alignment ===============================================================================
-
-.content-wrapper-right {
-    display:flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
-    float: right;
-}
-
-// =================================================================================================
-// Buttons
-// =================================================================================================
-
-.button {
+.big-button {
     padding: 1.5em;
+    font-size: clamp(1em, 4vw, 1.5em);
     border: none;
     border-radius: 10px;
     text-decoration: none;
     text-align: center;
+    --font: "Wild World";
+    background-color: var(--yellow)
+}
+
+.logo {
+    width: clamp(2.5rem, 5vw, 3rem);
 }
 
 // =================================================================================================
 // Everything else
 // =================================================================================================
-
 body.index {
     background-image: url("../assets/images/backgrounds/gradient-bg-2k.png");
     background-size: cover;
@@ -109,23 +72,31 @@ body.index {
     height: 100vh;
     .content-wrapper {
         padding-right: 9em;
+        padding-left: 9em;
         padding-top: 10vh;
         padding-bottom: 10vh;
         height: 100%;
         max-width: 1200px;
         gap: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
+        float: right;
     }
 }
 
 .navbar {
-    width:100vw;
+    width: 100vw;
     position: sticky;
     top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5em;
-    .left, .right * {
+    z-index: 100;
+    .left,
+    .right * {
         display: flex;
         align-items: center;
         gap: 1em;
@@ -136,6 +107,134 @@ body.index {
     }
 }
 
-@media only screen and (max-width: 1200px) {
-    *, *::before, *::after {font-size: 10px;}
+.menu {
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    align-items: center;
+    position: absolute;
+    display: flex;
+    background-color: hsl(48, 29%, 10%);
+    transition: opacity 400ms ease;
+    &.open {
+        opacity: 1;
+    }
+    &.closed {
+        display: none;
+    }
+    .menu-items {
+        margin-left: clamp(4rem, 20vw, 48rem);
+        z-index: 2;
+        .menu-item {
+            color: white;
+            font-size: clamp(3rem, 8vw, 8rem);
+            display: block;
+            text-decoration: none;
+            padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+            transition: opacity 400ms ease;
+        }
+        &:hover {
+            &>.menu-item {
+                opacity: 0.3;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+            ~.menu-bg-pattern {
+                background-size: 11vmin 11vmin;
+                opacity: 0.5;
+            }
+        }
+    }
+    .menu-bg-pattern {
+        height: 100vh;
+        width: 100vw;
+        background-image: radial-gradient(hsla(0, 100%, 100%, 0.1) 9%, transparent 9%);
+        background-position: 0% 0%;
+        background-size: 12vmin 12vmin;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        transition: opacity 800ms ease, background-size 800ms ease, background-position 800ms ease;
+    }
+    &[data-active-index="0"] {
+        .menu-bg-pattern {
+            background-position: 0% -25%;
+        }
+    }
+    &[data-active-index="1"] {
+        .menu-bg-pattern {
+            background-position: 0% -50%;
+        }
+    }
+    &[data-active-index="2"] {
+        .menu-bg-pattern {
+            background-position: 0% -75%;
+        }
+    }
+    &[data-active-index="3"] {
+        .menu-bg-pattern {
+            background-position: 0% -100%;
+        }
+    }
+}
+
+.menu-toggle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    transition: all 400ms ease-in-out;
+    .menu-icon {
+        width: 3rem;
+        height: 0.4rem;
+        background: hsl(0, 100%, 100%);
+        transition: all 400ms ease-in-out;
+        border-radius: 0.5rem;
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 3rem;
+            height: 0.4rem;
+            border-radius: 0.5rem;
+            background: hsl(0, 100%, 100%);
+            transition: all 400ms ease-in-out;
+        }
+        &::before {
+            transform: translateY(-1rem);
+        }
+        &::after {
+            transform: translateY(1rem);
+        }
+    }
+    // Animation
+    &.open .menu-icon {
+        transform: translateX(-50px);
+        background: transparent;
+        &::before {
+            transform: rotate(45deg) translate(35px, -35px);
+        }
+        &::after {
+            transform: rotate(-45deg) translate(35px, 35px);
+        }
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    body.index {
+        align-items: center;
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 10vh 0 10vh 0;
+            gap: 3em;
+        }
+    }
 }
