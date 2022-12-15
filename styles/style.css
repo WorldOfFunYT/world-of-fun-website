@@ -31,23 +31,24 @@
 .big-title {
   --font: "Wild World";
   color: white;
-  font-size: clamp(2rem, 8vw, 5rem);
+  font-size: clamp(2rem, 6vw, 5rem);
 }
 
 .big-paragraph {
   --font: "Michroma";
   color: white;
-  font-size: clamp(1.13rem, 5vw, 3rem);
+  font-size: clamp(1.13rem, 3vw, 3rem);
 }
 
 .big-button {
   padding: 1.5em;
-  font-size: clamp(1em, 4vw, 1.5em);
+  font-size: clamp(1em, 3vw, 1.5em);
   border: none;
   border-radius: 10px;
   text-decoration: none;
   text-align: center;
   --font: "Wild World";
+  color: hsl(0deg, 0%, 0%);
   background-color: var(--yellow);
 }
 
@@ -70,7 +71,7 @@ body.index .content-wrapper {
   padding-top: 10vh;
   padding-bottom: 10vh;
   height: 100%;
-  max-width: 1200px;
+  max-width: 1500px;
   gap: 2em;
   display: flex;
   flex-direction: column;
@@ -87,7 +88,7 @@ body.index .content-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5em;
+  padding: 0.5em 1.5em;
   z-index: 100;
 }
 .navbar .left,
@@ -104,22 +105,25 @@ body.index .content-wrapper {
 .menu {
   height: 100vh;
   width: 100vw;
-  opacity: 0;
   align-items: center;
   position: absolute;
   display: flex;
   background-color: hsl(48deg, 29%, 10%);
   transition: opacity 400ms ease;
 }
-.menu.open {
-  opacity: 1;
+.menu.visuallyhidden {
+  opacity: 0;
 }
-.menu.closed {
+.menu.visuallyhidden .menu-items {
+  transform: translateX(10em);
+}
+.menu.hidden {
   display: none;
 }
 .menu .menu-items {
   margin-left: clamp(4rem, 20vw, 48rem);
   z-index: 2;
+  transition: transform 800ms ease;
 }
 .menu .menu-items .menu-item {
   color: white;
@@ -169,32 +173,33 @@ body.index .content-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 5rem;
-  height: 5rem;
+  width: 5em;
+  height: 5em;
+  font-size: 13px;
   cursor: pointer;
   transition: all 400ms ease-in-out;
 }
 .menu-toggle .menu-icon {
-  width: 3rem;
-  height: 0.4rem;
+  width: 3em;
+  height: 0.4em;
   background: hsl(0deg, 100%, 100%);
   transition: all 400ms ease-in-out;
-  border-radius: 0.5rem;
+  border-radius: 0.5em;
 }
 .menu-toggle .menu-icon::before, .menu-toggle .menu-icon::after {
   content: "";
   position: absolute;
-  width: 3rem;
-  height: 0.4rem;
-  border-radius: 0.5rem;
+  width: 3em;
+  height: 0.4em;
+  border-radius: 0.5em;
   background: hsl(0deg, 100%, 100%);
   transition: all 400ms ease-in-out;
 }
 .menu-toggle .menu-icon::before {
-  transform: translateY(-1rem);
+  transform: translateY(-1em);
 }
 .menu-toggle .menu-icon::after {
-  transform: translateY(1rem);
+  transform: translateY(1em);
 }
 .menu-toggle.open .menu-icon {
   transform: translateX(-50px);
