@@ -120,9 +120,11 @@ body.music {
   background-color: #692844;
 }
 body.music .content-wrapper {
-  height: 100vh;
   width: 100vw;
-  max-width: 1500px;
+}
+body.music .content-wrapper .content {
+  height: 100vh;
+  width: 100%;
   gap: 2em;
   display: flex;
   flex-direction: column;
@@ -130,41 +132,45 @@ body.music .content-wrapper {
   justify-content: center;
   text-align: center;
 }
-body.music .content-wrapper.section-1 {
+body.music .content-wrapper .content.section-1 {
+  width: 100vw;
   background-image: url("../assets/images/backgrounds/music-bg-section-1-4k.png");
   background-position: bottom left;
   background-size: cover;
 }
-body.music .content-wrapper.section-2 {
+body.music .content-wrapper .content.section-2 {
+  width: 100%;
+  background-position: top left;
   background-image: url("../assets/images/backgrounds/music-bg-section-2-4k.png");
+  background-size: contain;
   background-size: cover;
 }
-body.music .content-wrapper.section-2 .card {
+body.music .content-wrapper .content.section-2 .card {
   width: 670px;
   height: 230px;
   display: flex;
   flex-direction: row;
 }
-body.music .content-wrapper.section-2 .card .text {
+body.music .content-wrapper .content.section-2 .card .text {
   text-align: left;
   display: flex;
   flex-direction: column;
   gap: 2em;
   padding: 1.5em;
 }
-body.music .content-wrapper.section-2 .card .image {
+body.music .content-wrapper .content.section-2 .card .image {
   width: 14.375rem;
   height: 14.375rem;
   background-color: hsl(0deg, 0%, 60%);
   border-radius: 1em;
 }
-body.music .content-wrapper .icons {
+body.music .content-wrapper .content .icons {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 1.5em;
 }
-body.music .content-wrapper .icons * {
+body.music .content-wrapper .content .icons * {
   width: 6em;
   height: 6em;
 }

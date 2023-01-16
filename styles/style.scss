@@ -122,51 +122,58 @@ body.music {
     justify-content: center;
     background-color: #692844;
     .content-wrapper {
-        height: 100vh;
         width: 100vw;
-        max-width: 1500px;
-        gap: 2em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        &.section-1 {
-            background-image: url("../assets/images/backgrounds/music-bg-section-1-4k.png");
-            background-position: bottom left;
-            background-size: cover;
-        }
-        &.section-2 {
-            background-image: url("../assets/images/backgrounds/music-bg-section-2-4k.png");
-            background-size: cover;
-            .card {
-                width: 670px;
-                height: 230px;
-                display: flex;
-                flex-direction: row;
-                .text {
-                    text-align: left;
+        .content {
+            height: 100vh;
+            width: 100%;
+            // max-width: 1500px;
+            gap: 2em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            &.section-1 {
+                width: 100vw;
+                background-image: url("../assets/images/backgrounds/music-bg-section-1-4k.png");
+                background-position: bottom left;
+                background-size: cover;
+            }
+            &.section-2 {
+                width: 100%;
+                background-position: top left;
+                background-image: url("../assets/images/backgrounds/music-bg-section-2-4k.png");
+                background-size: contain;
+                background-size: cover;
+                .card {
+                    width: 670px;
+                    height: 230px;
                     display: flex;
-                    flex-direction: column;
-                    gap: 2em;
-                    padding: 1.5em;
-                }
-                .image {
-                    width: 14.375rem;
-                    height: 14.375rem;
-                    background-color: hsl(0, 0%, 60%);
-                    border-radius: 1em;
+                    flex-direction: row;
+                    .text {
+                        text-align: left;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2em;
+                        padding: 1.5em;
+                    }
+                    .image {
+                        width: 14.375rem;
+                        height: 14.375rem;
+                        background-color: hsl(0, 0%, 60%);
+                        border-radius: 1em;
+                    }
                 }
             }
-        }
-        .icons {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 1.5em;
-            * {
-                width: 6em;
-                height: 6em;
+            .icons {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1.5em;
+                * {
+                    width: 6em;
+                    height: 6em;
+                }
             }
         }
     }
